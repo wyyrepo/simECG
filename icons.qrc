@@ -1,0 +1,13 @@
+<RCC>
+    <qresource prefix="/" >
+        <file>images/simecg-ss1.png</file>
+        <file>images/simecg-logo-32x32.png</file>
+        <file>images/simecg-logo.png</file>
+        <file>images/simecg-ss2.png</file>
+        <file>images/agplv3-155x51.png</file>
+        <file>translations/simecg_de.qm</file>
+        <file>translations/simecg_es.qm</file>
+        <file>translations/simecg_fr.qm</file>
+        <file>translations/simecg_pt.qm</file>
+    </qresource>
+</RCC>

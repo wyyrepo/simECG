@@ -1,0 +1,49 @@
+#! /bin/bash
+#****************************************************************************
+# Antonio Cardoso Martins    (digiplan.pt@gmail.com)
+# Paulo Dias Costa           (mestre.do.pau@gmail.com)
+# João Silva Marques         (joaomiguelsilvamarques@gmail.com)
+#
+# Copyright (c) 2009 All Rights Reserved
+#
+# Date: May 2009
+#
+# This file is part of simECG
+#
+# simECG is free software: you can redistribute it and/or modify
+# it under the terms of the GNU General Public License as published by
+# the Free Software Foundation, either version 3 of the License, or
+# (at your option) any later version.
+#
+# simECG is distributed in the hope that it will be useful,
+# but WITHOUT ANY WARRANTY; without even the implied warranty of
+# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
+# GNU General Public License for more details.
+#
+# You should have received a copy of the GNU General Public License
+# along with Foobar.  If not, see <http://www.gnu.org/licenses/>.
+#
+#****************************************************************************
+
+# This script is responsible for counting program builds.
+#
+# The counter is defined as a constant in the source code, in the
+# format: "#define BUILDVERSION 0.12"
+# It sets only the minor version number to the next integer.
+#
+# It runs before each compilation under qt-creator.
+# In order to activate this script, you should configure build settings
+# under Projects icon. Add a new "custom process step" in "build steps"
+# and set it to call this script (command).
+
+SOURCE=version.h
+
+# Obtain current build number from source file
+BUILD=`cat $SOURCE | grep "^#define BUILDVERSION" |  awk -F\" '{ print $2; }' | cut -d. -f2`
+
+# Increment the BUILD variable
+let "BUILD=$BUILD + 1"
+
+# Insert the incremented value in the file main.cpp
+sed -i -r "s/^#define BUILDVERSION \"([0-9]+)\.[0-9]+\"$/#define BUILDVERSION \"\1.$BUILD\"/" $SOURCE
+

@@ -1,0 +1,198 @@
+simECG - Open Source ECG simulator version 1.0, June 2009
+
+------- TABLE OF CONTENTS -------
+
+ 1. Introduction
+ 2. Features
+ 3. Installation
+ 4. Documentation
+ 5. Mailing Lists
+ 6. Forums & Tracker service
+ 7. Development
+ 8. Links
+ 9. Disclaimer
+
+--------------------------------
+
+1. Introduction
+
+The simECG software was developed for acting as an ECG simulator, for both
+training and assessment purposes.
+It has the ability to display several pre-defined rhythms for training purposes,
+such as rhythm and conduction disturbances. Additionally, a number of settings
+can be altered in order to create different training experiences for different
+levels of user proficiency. With the release of this version, in Open Source
+format, the authors putin practical application their ideal that education (and
+training, in this case) should not be a commercial tool accessible to some but
+rather a free collaborative tool available for those who seek knowledge.This
+project will always be unfinished, and for that reason we count with your
+comments and feedback to improve it. Please write you feedback by mail or place
+in the forum.
+
+
+--------------------------------
+
+2. Features
+
+This version allows you to:
+
+    * View presets
+          o Sinus rhythm
+          o Sinus bradycardia
+          o Sinus tachycardia
+          o Atrial fibrillation (not implemented in this version)
+          o Fast atrial fibrillation (not implemented in this version)
+          o Junctional rhythm
+          o Accelerated junctional rhythm
+          o Idioventricular rhythm
+          o Accelerated idioventricular rhythm
+          o Isolated PAC (not implemented in this version)
+          o Paired PAC (not implemented in this version)
+          o Supraventricular tachycardia
+          o Sinus pause (not implemented in this version)
+          o Type I 2nd degree SA block (not implemented in this version)
+          o Isolated monomorphic PVC (not implemented in this version)
+          o Isolated polymorphic PVC (not implemented in this version)
+          o Monomorphic VT
+          o Polymorphic VT (not implemented in this version)
+          o Ventricular fibrillation
+          o First degree AV block
+          o Type I 2nd degree AV block (not implemented in this version)
+          o Type II 2nd degree AV block (not implemented in this version)
+          o Second degree AV block - 2:1 (not implemented in this version)
+          o AV dissociation
+
+    * Define custom settings
+
+          o Heart rate
+          o PR interval
+          o P wave: duration, amplitude and polarity
+          o QRS complex: duration, amplitude and morphology (not implemented in
+            this version)
+          o T wave: duration, amplitude and polarity
+          o PAC: number and coupling interval (not implemented in this version)
+          o PVC: number and coupling interval (not implemented in this version)
+          o Special conditions: type I and type II 2nd degree AV block and AV
+            dissociation (not implemented in this version)
+          o Other conditions: atrial fibrillation (not implemented in this
+            version)
+
+    * Assess your knowledge
+
+Additionally, in later versions, it will be possible to define certain
+preferences such as calibration, filters, display and background as well as to
+save/load your preferences and training settings.
+
+
+--------------------------------
+
+3. Installation
+
+The most recent binary releases are always maintained in the Sourceforge project page https://sourceforge.net/project/platformdownload.php?group_id=263385
+Source code: The program can be compiled in any of the Qt4 supported platforms (http://www.qtsoftware.com/products), such as Apple Mac OS X among others. For those cases, you must have Qt4 development environment installed, and obtain the simECG source code.
+
+simECG is released in binary format for the following platforms:
+
+Linux platform binary
+The released binary is inside a tar gzip file, and will require Qt shared libraries to run. Please make sure you have libqt4 installed in your computer.
+
+Download Linux version from:
+https://sourceforge.net/project/platformdownload.php?group_id=263385&sel_platform=16671
+
+Windows platform binary
+The simECG files are distributed inside a .zip file. Just unpack into a directory of your choice. There are no special requirements. In some special cases, you could need msvcrt.dll in order to run simECG.exe.
+
+Download Windows version from:
+https://sourceforge.net/project/platformdownload.php?group_id=263385&sel_platform=16670
+
+From source code
+You will need Qt version 4 developer libraries from your target platform in order to compile the source code. Just 'qmake' in the source code directory and a binary will be built. If you find any trouble during compilation for your platform, please contact the developers, or post questions and suggestions in the project developers mailing list.
+
+Source code is available at:
+http://sourceforge.net/scm/?type=svn&group_id=263385
+
+
+--------------------------------
+
+4. Documentation
+
+Support documentation is available in pdf format at
+https://sourceforge.net/project/showfiles.php?group_id=263385&package_id=325500
+
+
+--------------------------------
+
+5. Mailing Lists
+
+Access simECG Mailing Lists at: http://sourceforge.net/mail/?group_id=263385
+
+
+--------------------------------
+
+6. Forums & Tracker service
+
+Access simECG Forums at: http://sourceforge.net/forum/?group_id=263385
+
+You can also submit bugs or new features using the project tracker
+
+Bugs: https://sourceforge.net/tracker/?group_id=263385&atid=1127675
+
+Features: https://sourceforge.net/tracker/?group_id=263385&atid=1127676
+
+--------------------------------
+
+7. Development
+
+This project was developed as an assignment for
+“Sistemas de Informação em Saúde - I” part of the Masters in Medical
+Informatics - Faculty of Medicine - University of Porto, Portugal.
+
+Developed by:
+António Cardoso Martins - Programming (digiplan.pt@gmail.com)
+Paulo Dias Costa - Scientific Contents & Layout (mestre.do.pau@gmail.com)
+João Miguel Marques - Design & Graphics (joaomiguelsilvamarques@gmail.com)
+
+Under the supervision of:
+Ricardo Cruz-Correia (rcorreia@med.up.pt)
+
+Acknowledgements:
+ECG Simulation : R. Karthik (may_62003@yahoo.co.in)
+Mathematics: Sandra Jardim (sandra.v.b.jardim@gmail.com)
+Splash Screen Design: Ernesto Aranda (ernestoaap@gmail.com)
+
+
+--------------------------------
+
+8. Links
+
+Project page: http://simecg.sourceforge.net
+GPL3: http://www.gnu.org/
+Softpedia: http://www.softpedia.com/
+Sourceforge: http://www.softpedia.com/
+
+
+--------------------------------
+
+9.Disclaimer
+
+- Although simECG takes all possible care to ensure the correctness of published
+information, no warranty can be accepted regarding the correctness, accuracy,
+uptodateness, reliability and completeness of the content of this information.
+
+- Information on this training tool is intended only to provide general
+information. It is not intended to be complete or definitive. Further
+professional advice should be sought before any action is taken in relation to
+matters contained on this program.
+
+- You accept all risks and responsibility for loss, damage, costs and other
+consequences resulting from using this tool and any web sites linked to it. You
+are also responsible for assessing the relevance and accuracy of any information
+or material available from this tool.
+
+- No warranty is made as to the accuracy or reliability of the information
+contained herein and simECG disclaims all liability and responsibility for any
+direct or indirect loss or damage which may be suffered by any recipient through
+relying on anything contained in or omitted from simECG.
+
+- Although this is an open source software, authors acknowledge the citation of
+their work.

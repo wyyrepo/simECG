@@ -1,0 +1,2233 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>myMainWindowClass</class>
+ <widget class="QMainWindow" name="myMainWindowClass">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>800</width>
+    <height>600</height>
+   </rect>
+  </property>
+  <property name="sizePolicy">
+   <sizepolicy hsizetype="MinimumExpanding" vsizetype="MinimumExpanding">
+    <horstretch>0</horstretch>
+    <verstretch>0</verstretch>
+   </sizepolicy>
+  </property>
+  <property name="minimumSize">
+   <size>
+    <width>800</width>
+    <height>600</height>
+   </size>
+  </property>
+  <property name="windowTitle">
+   <string comment="Application title name">simECG - The OpenSource ECG simulator</string>
+  </property>
+  <property name="windowIcon">
+   <iconset resource="icons.qrc">
+    <normaloff>:/images/simecg-logo-32x32.png</normaloff>:/images/simecg-logo-32x32.png</iconset>
+  </property>
+  <widget class="QWidget" name="centralWidget">
+   <layout class="QGridLayout" name="gridLayout_3">
+    <item row="0" column="0">
+     <widget class="ECGplotter" name="ECGplot" native="true">
+      <property name="sizePolicy">
+       <sizepolicy hsizetype="MinimumExpanding" vsizetype="MinimumExpanding">
+        <horstretch>0</horstretch>
+        <verstretch>0</verstretch>
+       </sizepolicy>
+      </property>
+      <property name="minimumSize">
+       <size>
+        <width>781</width>
+        <height>342</height>
+       </size>
+      </property>
+      <property name="cursor">
+       <cursorShape>OpenHandCursor</cursorShape>
+      </property>
+     </widget>
+    </item>
+   </layout>
+  </widget>
+  <widget class="QMenuBar" name="menuBar">
+   <property name="geometry">
+    <rect>
+     <x>0</x>
+     <y>0</y>
+     <width>800</width>
+     <height>24</height>
+    </rect>
+   </property>
+   <widget class="QMenu" name="menu_File">
+    <property name="title">
+     <string>&amp;File</string>
+    </property>
+    <addaction name="actionLoad_preferences"/>
+    <addaction name="actionSave_Technical_Specifications_As"/>
+    <addaction name="actionLoad_Training_Settings_as_Preset"/>
+    <addaction name="actionSave_as_Preset"/>
+    <addaction name="action_Exit"/>
+   </widget>
+   <widget class="QMenu" name="menu_Help">
+    <property name="title">
+     <string>&amp;Help</string>
+    </property>
+    <addaction name="action_About"/>
+   </widget>
+   <widget class="QMenu" name="menuTechinical">
+    <property name="title">
+     <string>&amp;Preferences</string>
+    </property>
+    <widget class="QMenu" name="menuCalibration">
+     <property name="title">
+      <string>&amp;Calibration</string>
+     </property>
+     <widget class="QMenu" name="menuAmplitude">
+      <property name="title">
+       <string>&amp;Amplitude</string>
+      </property>
+      <addaction name="actionAmplitude10mm"/>
+      <addaction name="actionAmplitude5mm"/>
+     </widget>
+     <widget class="QMenu" name="menuSpeed">
+      <property name="title">
+       <string>&amp;Speed</string>
+      </property>
+      <addaction name="actionSpeed25mm"/>
+      <addaction name="actionSpeed50mm"/>
+     </widget>
+     <addaction name="menuSpeed"/>
+     <addaction name="menuAmplitude"/>
+    </widget>
+    <widget class="QMenu" name="menuFilter">
+     <property name="title">
+      <string>&amp;Filters</string>
+     </property>
+     <addaction name="actionFilterOn"/>
+     <addaction name="actionFilterOff"/>
+    </widget>
+    <widget class="QMenu" name="menuDisplay">
+     <property name="title">
+      <string>&amp;Display</string>
+     </property>
+     <addaction name="actionBackStatic"/>
+     <addaction name="actionBackRolling"/>
+    </widget>
+    <widget class="QMenu" name="menuBackground">
+     <property name="title">
+      <string>&amp;Background</string>
+     </property>
+     <addaction name="actionBackgroundPaper"/>
+     <addaction name="actionBackgroundMonitor"/>
+    </widget>
+    <addaction name="menuCalibration"/>
+    <addaction name="menuFilter"/>
+    <addaction name="menuDisplay"/>
+    <addaction name="menuBackground"/>
+   </widget>
+   <addaction name="menu_File"/>
+   <addaction name="menuTechinical"/>
+   <addaction name="menu_Help"/>
+  </widget>
+  <widget class="QStatusBar" name="statusBar"/>
+  <widget class="QDockWidget" name="dockWindow">
+   <property name="minimumSize">
+    <size>
+     <width>800</width>
+     <height>193</height>
+    </size>
+   </property>
+   <property name="maximumSize">
+    <size>
+     <width>800</width>
+     <height>193</height>
+    </size>
+   </property>
+   <property name="mouseTracking">
+    <bool>true</bool>
+   </property>
+   <property name="floating">
+    <bool>false</bool>
+   </property>
+   <property name="features">
+    <set>QDockWidget::DockWidgetFloatable|QDockWidget::DockWidgetMovable</set>
+   </property>
+   <property name="allowedAreas">
+    <set>Qt::BottomDockWidgetArea</set>
+   </property>
+   <attribute name="dockWidgetArea">
+    <number>8</number>
+   </attribute>
+   <widget class="QWidget" name="dockWidgetContents">
+    <layout class="QGridLayout" name="gridLayout_9">
+     <property name="margin">
+      <number>0</number>
+     </property>
+     <property name="spacing">
+      <number>-1</number>
+     </property>
+     <item row="0" column="0">
+      <widget class="QTabWidget" name="ECGoptions">
+       <property name="minimumSize">
+        <size>
+         <width>786</width>
+         <height>160</height>
+        </size>
+       </property>
+       <property name="font">
+        <font>
+         <family>Sans Serif</family>
+         <pointsize>12</pointsize>
+         <weight>75</weight>
+         <bold>true</bold>
+        </font>
+       </property>
+       <property name="currentIndex">
+        <number>1</number>
+       </property>
+       <property name="iconSize">
+        <size>
+         <width>20</width>
+         <height>20</height>
+        </size>
+       </property>
+       <widget class="QWidget" name="presetsTab">
+        <attribute name="title">
+         <string>Presets</string>
+        </attribute>
+        <widget class="QWidget" name="layoutWidget">
+         <property name="geometry">
+          <rect>
+           <x>1</x>
+           <y>1</y>
+           <width>781</width>
+           <height>131</height>
+          </rect>
+         </property>
+         <layout class="QGridLayout" name="gridLayout">
+          <item row="0" column="0">
+           <widget class="QRadioButton" name="presetR0C0">
+            <property name="font">
+             <font>
+              <family>Sans Serif</family>
+              <pointsize>8</pointsize>
+              <weight>50</weight>
+              <bold>false</bold>
+             </font>
+            </property>
+            <property name="toolTip">
+             <string comment="Toottip">Displays a sinus rythm strip</string>
+            </property>
+            <property name="text">
+             <string comment=" (must be exactly the same as in ECGPlotter)">Sinus Rhythm</string>
+            </property>
+            <property name="checked">
+             <bool>true</bool>
+            </property>
+            <attribute name="buttonGroup">
+             <string>presetsButtonGroup</string>
+            </attribute>
+           </widget>
+          </item>
+          <item row="0" column="1">
+           <widget class="QRadioButton" name="presetR0C1">
+            <property name="font">
+             <font>
+              <family>Sans Serif</family>
+              <pointsize>8</pointsize>
+              <weight>50</weight>
+              <bold>false</bold>
+             </font>
+            </property>
+            <property name="toolTip">
+             <string comment="Toottip">Displays a junctional rhythm strip</string>
+            </property>
+            <property name="text">
+             <string comment=" (must be exactly the same as in ECGPlotter)">Junctional Rhythm</string>
+            </property>
+            <attribute name="buttonGroup">
+             <string>presetsButtonGroup</string>
+            </attribute>
+           </widget>
+          </item>
+          <item row="0" column="2">
+           <widget class="QRadioButton" name="presetR0C2">
+            <property name="enabled">
+             <bool>false</bool>
+            </property>
+            <property name="font">
+             <font>
+              <family>Sans Serif</family>
+              <pointsize>8</pointsize>
+              <weight>50</weight>
+              <bold>false</bold>
+             </font>
+            </property>
+            <property name="toolTip">
+             <string comment="Toottip">Displays a sinus rythm strip with isolated premature atrial contraction</string>
+            </property>
+            <property name="text">
+             <string comment=" (must be exactly the same as in ECGPlotter)">Isolated PAC</string>
+            </property>
+            <attribute name="buttonGroup">
+             <string>presetsButtonGroup</string>
+            </attribute>
+           </widget>
+          </item>
+          <item row="0" column="3">
+           <widget class="QRadioButton" name="presetR0C3">
+            <property name="font">
+             <font>
+              <family>Sans Serif</family>
+              <pointsize>8</pointsize>
+              <weight>50</weight>
+              <bold>false</bold>
+             </font>
+            </property>
+            <property name="toolTip">
+             <string comment="Toottip">Displays a sinus rhythm strip with a 1st degree atrio-ventricular block</string>
+            </property>
+            <property name="text">
+             <string comment=" (must be exactly the same as in ECGPlotter)">1st degree AV block</string>
+            </property>
+            <attribute name="buttonGroup">
+             <string>presetsButtonGroup</string>
+            </attribute>
+           </widget>
+          </item>
+          <item row="0" column="4">
+           <widget class="QRadioButton" name="presetR0C4">
+            <property name="enabled">
+             <bool>false</bool>
+            </property>
+            <property name="font">
+             <font>
+              <family>Sans Serif</family>
+              <pointsize>8</pointsize>
+              <weight>50</weight>
+              <bold>false</bold>
+             </font>
+            </property>
+            <property name="toolTip">
+             <string comment="Toottip">Displays a sinus rythm strip with isolated premature ventricular contractions (single form)</string>
+            </property>
+            <property name="text">
+             <string comment=" (must be exactly the same as in ECGPlotter)">Isolated monomorphic PVC</string>
+            </property>
+            <attribute name="buttonGroup">
+             <string>presetsButtonGroup</string>
+            </attribute>
+           </widget>
+          </item>
+          <item row="1" column="0">
+           <widget class="QRadioButton" name="presetR1C0">
+            <property name="font">
+             <font>
+              <family>Sans Serif</family>
+              <pointsize>8</pointsize>
+              <weight>50</weight>
+              <bold>false</bold>
+             </font>
+            </property>
+            <property name="toolTip">
+             <string comment="Toottip">Displays a sinus bradycardia strip</string>
+            </property>
+            <property name="text">
+             <string comment=" (must be exactly the same as in ECGPlotter)">Sinus Bradycardia</string>
+            </property>
+            <attribute name="buttonGroup">
+             <string>presetsButtonGroup</string>
+            </attribute>
+           </widget>
+          </item>
+          <item row="1" column="1">
+           <widget class="QRadioButton" name="presetR1C1">
+            <property name="font">
+             <font>
+              <family>Sans Serif</family>
+              <pointsize>8</pointsize>
+              <weight>50</weight>
+              <bold>false</bold>
+             </font>
+            </property>
+            <property name="toolTip">
+             <string comment="Toottip">Displays an accelerated junctional rhythm strip</string>
+            </property>
+            <property name="text">
+             <string comment=" (must be exactly the same as in ECGPlotter)">Accel. Junctional Rhythm</string>
+            </property>
+            <attribute name="buttonGroup">
+             <string>presetsButtonGroup</string>
+            </attribute>
+           </widget>
+          </item>
+          <item row="1" column="2">
+           <widget class="QRadioButton" name="presetR1C2">
+            <property name="enabled">
+             <bool>false</bool>
+            </property>
+            <property name="font">
+             <font>
+              <family>Sans Serif</family>
+              <pointsize>8</pointsize>
+              <weight>50</weight>
+              <bold>false</bold>
+             </font>
+            </property>
+            <property name="toolTip">
+             <string comment="Toottip">Displays a sinus rythm strip with paired premature atrial contractions</string>
+            </property>
+            <property name="text">
+             <string comment=" (must be exactly the same as in ECGPlotter)">Paired PAC</string>
+            </property>
+            <attribute name="buttonGroup">
+             <string>presetsButtonGroup</string>
+            </attribute>
+           </widget>
+          </item>
+          <item row="1" column="3">
+           <widget class="QRadioButton" name="presetR1C3">
+            <property name="enabled">
+             <bool>false</bool>
+            </property>
+            <property name="font">
+             <font>
+              <family>Sans Serif</family>
+              <pointsize>8</pointsize>
+              <weight>50</weight>
+              <bold>false</bold>
+             </font>
+            </property>
+            <property name="toolTip">
+             <string comment="Toottip">Displays a strip in sinus rhythm with a type I 2nd degree atrio-ventricular block</string>
+            </property>
+            <property name="text">
+             <string comment=" (must be exactly the same as in ECGPlotter)">Type I 2nd degree AV block</string>
+            </property>
+            <attribute name="buttonGroup">
+             <string>presetsButtonGroup</string>
+            </attribute>
+           </widget>
+          </item>
+          <item row="1" column="4">
+           <widget class="QRadioButton" name="presetR1C4">
+            <property name="enabled">
+             <bool>false</bool>
+            </property>
+            <property name="font">
+             <font>
+              <family>Sans Serif</family>
+              <pointsize>8</pointsize>
+              <weight>50</weight>
+              <bold>false</bold>
+             </font>
+            </property>
+            <property name="toolTip">
+             <string comment="Toottip">Displays a sinus rythm strip with isolated premature ventricular contractions (multiple forms)</string>
+            </property>
+            <property name="text">
+             <string comment=" (must be exactly the same as in ECGPlotter)">Isolated polymorphic PVC</string>
+            </property>
+            <attribute name="buttonGroup">
+             <string>presetsButtonGroup</string>
+            </attribute>
+           </widget>
+          </item>
+          <item row="2" column="0">
+           <widget class="QRadioButton" name="presetR2C0">
+            <property name="font">
+             <font>
+              <family>Sans Serif</family>
+              <pointsize>8</pointsize>
+              <weight>50</weight>
+              <bold>false</bold>
+             </font>
+            </property>
+            <property name="toolTip">
+             <string comment="Toottip">Displays a sinus bradycardia strip</string>
+            </property>
+            <property name="text">
+             <string comment=" (must be exactly the same as in ECGPlotter)">Sinus Tachycardia</string>
+            </property>
+            <attribute name="buttonGroup">
+             <string>presetsButtonGroup</string>
+            </attribute>
+           </widget>
+          </item>
+          <item row="2" column="1">
+           <widget class="QRadioButton" name="presetR2C1">
+            <property name="font">
+             <font>
+              <family>Sans Serif</family>
+              <pointsize>8</pointsize>
+              <weight>50</weight>
+              <bold>false</bold>
+             </font>
+            </property>
+            <property name="toolTip">
+             <string comment="Toottip">Displays an idioventricular rhythm strip</string>
+            </property>
+            <property name="text">
+             <string comment=" (must be exactly the same as in ECGPlotter)">Idioventricular Rhythm</string>
+            </property>
+            <attribute name="buttonGroup">
+             <string>presetsButtonGroup</string>
+            </attribute>
+           </widget>
+          </item>
+          <item row="2" column="2">
+           <widget class="QRadioButton" name="presetR2C2">
+            <property name="font">
+             <font>
+              <family>Sans Serif</family>
+              <pointsize>8</pointsize>
+              <weight>50</weight>
+              <bold>false</bold>
+             </font>
+            </property>
+            <property name="toolTip">
+             <string comment="Toottip">Displays a supraventricular tachycardia strip</string>
+            </property>
+            <property name="text">
+             <string comment=" (must be exactly the same as in ECGPlotter)">Supraventricular Tachycardia</string>
+            </property>
+            <attribute name="buttonGroup">
+             <string>presetsButtonGroup</string>
+            </attribute>
+           </widget>
+          </item>
+          <item row="2" column="3">
+           <widget class="QRadioButton" name="presetR2C3">
+            <property name="enabled">
+             <bool>false</bool>
+            </property>
+            <property name="font">
+             <font>
+              <family>Sans Serif</family>
+              <pointsize>8</pointsize>
+              <weight>50</weight>
+              <bold>false</bold>
+             </font>
+            </property>
+            <property name="toolTip">
+             <string comment="Toottip">Displays a sinus rhythm strip with a type II 2nd degree atrio-ventricular block</string>
+            </property>
+            <property name="text">
+             <string comment=" (must be exactly the same as in ECGPlotter)">Type II 2nd degree AV block</string>
+            </property>
+            <attribute name="buttonGroup">
+             <string>presetsButtonGroup</string>
+            </attribute>
+           </widget>
+          </item>
+          <item row="2" column="4">
+           <widget class="QRadioButton" name="presetR2C4">
+            <property name="font">
+             <font>
+              <family>Sans Serif</family>
+              <pointsize>8</pointsize>
+              <weight>50</weight>
+              <bold>false</bold>
+             </font>
+            </property>
+            <property name="toolTip">
+             <string comment="Toottip">Displays a monomorphic ventricular tachycardia strip</string>
+            </property>
+            <property name="text">
+             <string comment=" (must be exactly the same as in ECGPlotter)">Monomorphic VT</string>
+            </property>
+            <attribute name="buttonGroup">
+             <string>presetsButtonGroup</string>
+            </attribute>
+           </widget>
+          </item>
+          <item row="3" column="0">
+           <widget class="QRadioButton" name="presetR3C0">
+            <property name="enabled">
+             <bool>false</bool>
+            </property>
+            <property name="font">
+             <font>
+              <family>Sans Serif</family>
+              <pointsize>8</pointsize>
+              <weight>50</weight>
+              <bold>false</bold>
+             </font>
+            </property>
+            <property name="toolTip">
+             <string comment="Toottip">Displays an atrial fibrillation strip</string>
+            </property>
+            <property name="text">
+             <string comment=" (must be exactly the same as in ECGPlotter)">Atrial Fibrillation</string>
+            </property>
+            <attribute name="buttonGroup">
+             <string>presetsButtonGroup</string>
+            </attribute>
+           </widget>
+          </item>
+          <item row="3" column="1">
+           <widget class="QRadioButton" name="presetR3C1">
+            <property name="font">
+             <font>
+              <family>Sans Serif</family>
+              <pointsize>8</pointsize>
+              <weight>50</weight>
+              <bold>false</bold>
+             </font>
+            </property>
+            <property name="toolTip">
+             <string comment="Toottip">Displays an accelerated idioventricular rhythm strip</string>
+            </property>
+            <property name="text">
+             <string comment=" (must be exactly the same as in ECGPlotter)">Accel. Idiovent. Rhythm</string>
+            </property>
+            <attribute name="buttonGroup">
+             <string>presetsButtonGroup</string>
+            </attribute>
+           </widget>
+          </item>
+          <item row="3" column="2">
+           <widget class="QRadioButton" name="presetR3C2">
+            <property name="enabled">
+             <bool>false</bool>
+            </property>
+            <property name="font">
+             <font>
+              <family>Sans Serif</family>
+              <pointsize>8</pointsize>
+              <weight>50</weight>
+              <bold>false</bold>
+             </font>
+            </property>
+            <property name="toolTip">
+             <string comment="Toottip">Displays a sinus pause strip</string>
+            </property>
+            <property name="text">
+             <string comment=" (must be exactly the same as in ECGPlotter)">Sinus Pause</string>
+            </property>
+            <attribute name="buttonGroup">
+             <string>presetsButtonGroup</string>
+            </attribute>
+           </widget>
+          </item>
+          <item row="3" column="3">
+           <widget class="QRadioButton" name="presetR3C3">
+            <property name="enabled">
+             <bool>false</bool>
+            </property>
+            <property name="font">
+             <font>
+              <family>Sans Serif</family>
+              <pointsize>8</pointsize>
+              <weight>50</weight>
+              <bold>false</bold>
+             </font>
+            </property>
+            <property name="toolTip">
+             <string comment="Toottip">Displays a 2nd degree atrio-ventricular block (2:1) strip</string>
+            </property>
+            <property name="text">
+             <string comment=" (must be exactly the same as in ECGPlotter)">2nd degree AV block (2:1)</string>
+            </property>
+            <attribute name="buttonGroup">
+             <string>presetsButtonGroup</string>
+            </attribute>
+           </widget>
+          </item>
+          <item row="3" column="4">
+           <widget class="QRadioButton" name="presetR3C4">
+            <property name="enabled">
+             <bool>false</bool>
+            </property>
+            <property name="font">
+             <font>
+              <family>Sans Serif</family>
+              <pointsize>8</pointsize>
+              <weight>50</weight>
+              <bold>false</bold>
+             </font>
+            </property>
+            <property name="toolTip">
+             <string comment="Toottip">Displays a polymorphic ventricular tachycardia strip</string>
+            </property>
+            <property name="text">
+             <string comment=" (must be exactly the same as in ECGPlotter)">Polymorphic VT</string>
+            </property>
+            <attribute name="buttonGroup">
+             <string>presetsButtonGroup</string>
+            </attribute>
+           </widget>
+          </item>
+          <item row="4" column="0">
+           <widget class="QRadioButton" name="presetR4C0">
+            <property name="enabled">
+             <bool>false</bool>
+            </property>
+            <property name="font">
+             <font>
+              <family>Sans Serif</family>
+              <pointsize>8</pointsize>
+              <weight>50</weight>
+              <bold>false</bold>
+             </font>
+            </property>
+            <property name="toolTip">
+             <string comment="Toottip">Displays an atrial fibrillation with fast ventricular response strip</string>
+            </property>
+            <property name="text">
+             <string comment=" (must be exactly the same as in ECGPlotter)">Fast Atrial Fibrillation</string>
+            </property>
+            <attribute name="buttonGroup">
+             <string>presetsButtonGroup</string>
+            </attribute>
+           </widget>
+          </item>
+          <item row="4" column="2">
+           <widget class="QRadioButton" name="presetR4C2">
+            <property name="enabled">
+             <bool>false</bool>
+            </property>
+            <property name="font">
+             <font>
+              <family>Sans Serif</family>
+              <pointsize>8</pointsize>
+              <weight>50</weight>
+              <bold>false</bold>
+             </font>
+            </property>
+            <property name="toolTip">
+             <string comment="Toottip">Displays a type I 2nd degree sino-atrial block</string>
+            </property>
+            <property name="text">
+             <string comment=" (must be exactly the same as in ECGPlotter)">Type II 2nd degree SA block</string>
+            </property>
+            <attribute name="buttonGroup">
+             <string>presetsButtonGroup</string>
+            </attribute>
+           </widget>
+          </item>
+          <item row="4" column="3">
+           <widget class="QRadioButton" name="presetR4C3">
+            <property name="enabled">
+             <bool>false</bool>
+            </property>
+            <property name="font">
+             <font>
+              <family>Sans Serif</family>
+              <pointsize>8</pointsize>
+              <weight>50</weight>
+              <bold>false</bold>
+             </font>
+            </property>
+            <property name="toolTip">
+             <string comment="Toottip">Displays a strip with atrio-ventricular dissociation</string>
+            </property>
+            <property name="text">
+             <string comment=" (must be exactly the same as in ECGPlotter)">AV dissociation</string>
+            </property>
+            <attribute name="buttonGroup">
+             <string>presetsButtonGroup</string>
+            </attribute>
+           </widget>
+          </item>
+          <item row="4" column="4">
+           <widget class="QRadioButton" name="presetR4C4">
+            <property name="enabled">
+             <bool>false</bool>
+            </property>
+            <property name="font">
+             <font>
+              <family>Sans Serif</family>
+              <pointsize>8</pointsize>
+              <weight>50</weight>
+              <bold>false</bold>
+             </font>
+            </property>
+            <property name="toolTip">
+             <string comment="Toottip">Displays a ventricular fibrillation strip</string>
+            </property>
+            <property name="text">
+             <string comment=" (must be exactly the same as in ECGPlotter)">Ventricular Fibrillation</string>
+            </property>
+            <attribute name="buttonGroup">
+             <string>presetsButtonGroup</string>
+            </attribute>
+           </widget>
+          </item>
+         </layout>
+        </widget>
+       </widget>
+       <widget class="QWidget" name="customSettingsTab">
+        <attribute name="title">
+         <string>Custom settings</string>
+        </attribute>
+        <widget class="QGroupBox" name="specialconditionsbox">
+         <property name="geometry">
+          <rect>
+           <x>610</x>
+           <y>0</y>
+           <width>181</width>
+           <height>61</height>
+          </rect>
+         </property>
+         <property name="font">
+          <font>
+           <family>Sans Serif</family>
+           <pointsize>8</pointsize>
+          </font>
+         </property>
+         <property name="title">
+          <string comment="Group box title">Special Conditions</string>
+         </property>
+         <widget class="QComboBox" name="typesosblockinspecialconditions">
+          <property name="enabled">
+           <bool>false</bool>
+          </property>
+          <property name="geometry">
+           <rect>
+            <x>9</x>
+            <y>31</y>
+            <width>163</width>
+            <height>24</height>
+           </rect>
+          </property>
+          <property name="font">
+           <font>
+            <family>Sans Serif</family>
+            <weight>50</weight>
+            <bold>false</bold>
+           </font>
+          </property>
+          <property name="toolTip">
+           <string comment="Tooltip for special conditions">This simulates advanced atrio-ventricular conduction disturbances, such as 2nd a 3rd degree atrio-ventricular blocks. 
+When AF is checked, this option is turned off.</string>
+          </property>
+          <property name="currentIndex">
+           <number>1</number>
+          </property>
+          <item>
+           <property name="text">
+            <string>1st degree AV block</string>
+           </property>
+          </item>
+          <item>
+           <property name="text">
+            <string>Type I 2nd degree AV block</string>
+           </property>
+          </item>
+          <item>
+           <property name="text">
+            <string>Type II 2nd degree AV block</string>
+           </property>
+          </item>
+          <item>
+           <property name="text">
+            <string>AV dissociation</string>
+           </property>
+          </item>
+         </widget>
+        </widget>
+        <widget class="QGroupBox" name="otherconditionsgroupbox">
+         <property name="geometry">
+          <rect>
+           <x>610</x>
+           <y>60</y>
+           <width>171</width>
+           <height>61</height>
+          </rect>
+         </property>
+         <property name="font">
+          <font>
+           <family>Sans Serif</family>
+           <pointsize>8</pointsize>
+          </font>
+         </property>
+         <property name="title">
+          <string comment="Other signal conditions group box with AF button inside">Other Conditions</string>
+         </property>
+         <widget class="QCheckBox" name="atrialfibrillation">
+          <property name="enabled">
+           <bool>false</bool>
+          </property>
+          <property name="geometry">
+           <rect>
+            <x>30</x>
+            <y>30</y>
+            <width>85</width>
+            <height>23</height>
+           </rect>
+          </property>
+          <property name="font">
+           <font>
+            <family>Sans Serif</family>
+            <pointsize>8</pointsize>
+            <weight>50</weight>
+            <bold>false</bold>
+           </font>
+          </property>
+          <property name="toolTip">
+           <string comment="Tooltip">When checked this option simulates an atrial fibrillation.
+When checked turns inactive PR and P wave characteristics, as well as special conditions.</string>
+          </property>
+          <property name="text">
+           <string comment="AF means Atrial Fibrilation (in a check box)">AF</string>
+          </property>
+         </widget>
+        </widget>
+        <widget class="QGroupBox" name="extrassistolegroupbox">
+         <property name="geometry">
+          <rect>
+           <x>340</x>
+           <y>0</y>
+           <width>261</width>
+           <height>121</height>
+          </rect>
+         </property>
+         <property name="font">
+          <font>
+           <family>Sans Serif</family>
+           <pointsize>8</pointsize>
+          </font>
+         </property>
+         <property name="title">
+          <string comment="Group box title">Premature Beats</string>
+         </property>
+         <widget class="QWidget" name="">
+          <property name="geometry">
+           <rect>
+            <x>10</x>
+            <y>40</y>
+            <width>241</width>
+            <height>61</height>
+           </rect>
+          </property>
+          <layout class="QGridLayout" name="gridLayout_4">
+           <item row="0" column="0">
+            <widget class="QCheckBox" name="svecheckbox">
+             <property name="enabled">
+              <bool>false</bool>
+             </property>
+             <property name="font">
+              <font>
+               <family>Sans Serif</family>
+               <pointsize>8</pointsize>
+               <weight>50</weight>
+               <bold>false</bold>
+              </font>
+             </property>
+             <property name="toolTip">
+              <string comment="Tooltip">Activates the presence of premature atrial contractions.
+Inactive when AF is checked.</string>
+             </property>
+             <property name="text">
+              <string comment="PAC = Premature Atrial Contractions (check box)">PAC</string>
+             </property>
+            </widget>
+           </item>
+           <item row="0" column="1">
+            <widget class="QSpinBox" name="numberofsve">
+             <property name="enabled">
+              <bool>false</bool>
+             </property>
+             <property name="font">
+              <font>
+               <family>Sans Serif</family>
+               <pointsize>8</pointsize>
+               <weight>50</weight>
+               <bold>false</bold>
+              </font>
+             </property>
+             <property name="cursor">
+              <cursorShape>ArrowCursor</cursorShape>
+             </property>
+             <property name="toolTip">
+              <string comment="Tooltip">Defines the number of premature beats. Ranges from 1 to 99.</string>
+             </property>
+             <property name="wrapping">
+              <bool>true</bool>
+             </property>
+             <property name="buttonSymbols">
+              <enum>QAbstractSpinBox::PlusMinus</enum>
+             </property>
+             <property name="prefix">
+              <string/>
+             </property>
+             <property name="minimum">
+              <number>1</number>
+             </property>
+             <property name="maximum">
+              <number>99</number>
+             </property>
+             <property name="value">
+              <number>3</number>
+             </property>
+            </widget>
+           </item>
+           <item row="0" column="2">
+            <widget class="QDoubleSpinBox" name="couplingofsve">
+             <property name="enabled">
+              <bool>false</bool>
+             </property>
+             <property name="font">
+              <font>
+               <family>Sans Serif</family>
+               <pointsize>8</pointsize>
+               <weight>50</weight>
+               <bold>false</bold>
+              </font>
+             </property>
+             <property name="toolTip">
+              <string comment="Tooltip">Defines the coupling of premature beats. Ranges from 100 ms to 600 ms. You can only define a fixed coupling interval.</string>
+             </property>
+             <property name="prefix">
+              <string/>
+             </property>
+             <property name="suffix">
+              <string comment="miliseconds"> ms</string>
+             </property>
+             <property name="decimals">
+              <number>0</number>
+             </property>
+             <property name="minimum">
+              <double>100.000000000000000</double>
+             </property>
+             <property name="maximum">
+              <double>600.000000000000000</double>
+             </property>
+             <property name="singleStep">
+              <double>10.000000000000000</double>
+             </property>
+             <property name="value">
+              <double>200.000000000000000</double>
+             </property>
+            </widget>
+           </item>
+           <item row="1" column="0">
+            <widget class="QCheckBox" name="vecheckbox">
+             <property name="enabled">
+              <bool>false</bool>
+             </property>
+             <property name="font">
+              <font>
+               <family>Sans Serif</family>
+               <pointsize>8</pointsize>
+               <weight>50</weight>
+               <bold>false</bold>
+              </font>
+             </property>
+             <property name="toolTip">
+              <string comment="Tooltip">Activates the presence of premature ventricular contractions.</string>
+             </property>
+             <property name="text">
+              <string comment="PVC = Premature Ventricular Contractions (check box)">PVC</string>
+             </property>
+             <property name="tristate">
+              <bool>false</bool>
+             </property>
+            </widget>
+           </item>
+           <item row="1" column="1">
+            <widget class="QSpinBox" name="numberofve">
+             <property name="enabled">
+              <bool>false</bool>
+             </property>
+             <property name="font">
+              <font>
+               <family>Sans Serif</family>
+               <pointsize>8</pointsize>
+               <weight>50</weight>
+               <bold>false</bold>
+              </font>
+             </property>
+             <property name="cursor">
+              <cursorShape>ArrowCursor</cursorShape>
+             </property>
+             <property name="toolTip">
+              <string comment="Tooltip">Defines the number of premature beats. Ranges from 1 to 99.</string>
+             </property>
+             <property name="wrapping">
+              <bool>true</bool>
+             </property>
+             <property name="buttonSymbols">
+              <enum>QAbstractSpinBox::PlusMinus</enum>
+             </property>
+             <property name="prefix">
+              <string/>
+             </property>
+             <property name="minimum">
+              <number>1</number>
+             </property>
+             <property name="maximum">
+              <number>99</number>
+             </property>
+             <property name="value">
+              <number>3</number>
+             </property>
+            </widget>
+           </item>
+           <item row="1" column="2">
+            <widget class="QDoubleSpinBox" name="couplingofve">
+             <property name="enabled">
+              <bool>false</bool>
+             </property>
+             <property name="font">
+              <font>
+               <family>Sans Serif</family>
+               <pointsize>8</pointsize>
+               <weight>50</weight>
+               <bold>false</bold>
+              </font>
+             </property>
+             <property name="toolTip">
+              <string comment="Tooltip">Defines the coupling of premature beats. Ranges from 100 ms to 600 ms. You can only define a fixed coupling interval.</string>
+             </property>
+             <property name="prefix">
+              <string/>
+             </property>
+             <property name="suffix">
+              <string comment="miliseconds"> ms</string>
+             </property>
+             <property name="decimals">
+              <number>0</number>
+             </property>
+             <property name="minimum">
+              <double>100.000000000000000</double>
+             </property>
+             <property name="maximum">
+              <double>600.000000000000000</double>
+             </property>
+             <property name="singleStep">
+              <double>10.000000000000000</double>
+             </property>
+             <property name="value">
+              <double>200.000000000000000</double>
+             </property>
+            </widget>
+           </item>
+           <item row="1" column="3">
+            <widget class="QComboBox" name="morphologyofve">
+             <property name="enabled">
+              <bool>false</bool>
+             </property>
+             <property name="font">
+              <font>
+               <family>Sans Serif</family>
+               <weight>50</weight>
+               <bold>false</bold>
+              </font>
+             </property>
+             <property name="toolTip">
+              <string comment="Morphology of the intraventricular conduction disturbance">Defines the morphology of the intraventricular conduction disturbance. Can be set as intraventricular conduction disturbance with RBBB or as intraventricular conduction disturbance with LBBB.</string>
+             </property>
+             <item>
+              <property name="text">
+               <string>RBBB</string>
+              </property>
+             </item>
+             <item>
+              <property name="text">
+               <string>LBBB</string>
+              </property>
+             </item>
+            </widget>
+           </item>
+          </layout>
+         </widget>
+        </widget>
+        <widget class="QWidget" name="">
+         <property name="geometry">
+          <rect>
+           <x>0</x>
+           <y>0</y>
+           <width>331</width>
+           <height>121</height>
+          </rect>
+         </property>
+         <layout class="QGridLayout" name="gridLayout_2">
+          <item row="0" column="0">
+           <widget class="QLabel" name="heartratelabel">
+            <property name="font">
+             <font>
+              <family>Sans Serif</family>
+              <pointsize>8</pointsize>
+             </font>
+            </property>
+            <property name="text">
+             <string>Heart Rate</string>
+            </property>
+            <property name="alignment">
+             <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+            </property>
+            <property name="buddy">
+             <cstring>heartratespinBox</cstring>
+            </property>
+           </widget>
+          </item>
+          <item row="0" column="1">
+           <widget class="QSpinBox" name="heartratespinBox">
+            <property name="sizePolicy">
+             <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+              <horstretch>0</horstretch>
+              <verstretch>0</verstretch>
+             </sizepolicy>
+            </property>
+            <property name="minimumSize">
+             <size>
+              <width>83</width>
+              <height>23</height>
+             </size>
+            </property>
+            <property name="maximumSize">
+             <size>
+              <width>83</width>
+              <height>23</height>
+             </size>
+            </property>
+            <property name="font">
+             <font>
+              <family>Sans Serif</family>
+              <pointsize>8</pointsize>
+              <weight>50</weight>
+              <bold>false</bold>
+             </font>
+            </property>
+            <property name="cursor">
+             <cursorShape>ArrowCursor</cursorShape>
+            </property>
+            <property name="toolTip">
+             <string>Defines the heart rate. Ranges from 30 bpm to 200 bpm.</string>
+            </property>
+            <property name="wrapping">
+             <bool>true</bool>
+            </property>
+            <property name="buttonSymbols">
+             <enum>QAbstractSpinBox::UpDownArrows</enum>
+            </property>
+            <property name="suffix">
+             <string comment="bpm = beats per minute"> bpm</string>
+            </property>
+            <property name="minimum">
+             <number>30</number>
+            </property>
+            <property name="maximum">
+             <number>200</number>
+            </property>
+            <property name="value">
+             <number>70</number>
+            </property>
+           </widget>
+          </item>
+          <item row="0" column="2">
+           <widget class="QLabel" name="prlabel">
+            <property name="font">
+             <font>
+              <family>Sans Serif</family>
+              <pointsize>8</pointsize>
+             </font>
+            </property>
+            <property name="text">
+             <string comment="Do not translate">PR</string>
+            </property>
+            <property name="alignment">
+             <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+            </property>
+           </widget>
+          </item>
+          <item row="0" column="3">
+           <widget class="QDoubleSpinBox" name="prduration">
+            <property name="sizePolicy">
+             <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+              <horstretch>0</horstretch>
+              <verstretch>0</verstretch>
+             </sizepolicy>
+            </property>
+            <property name="minimumSize">
+             <size>
+              <width>83</width>
+              <height>23</height>
+             </size>
+            </property>
+            <property name="maximumSize">
+             <size>
+              <width>83</width>
+              <height>23</height>
+             </size>
+            </property>
+            <property name="font">
+             <font>
+              <family>Sans Serif</family>
+              <pointsize>8</pointsize>
+              <weight>50</weight>
+              <bold>false</bold>
+             </font>
+            </property>
+            <property name="toolTip">
+             <string comment="PR Interval (do not translate PR)">Defines the duration of the PR interval. Ranges from 0.08 s to 0.30 s. Inactive when AF is checked.</string>
+            </property>
+            <property name="suffix">
+             <string comment="seconds"> s</string>
+            </property>
+            <property name="decimals">
+             <number>2</number>
+            </property>
+            <property name="minimum">
+             <double>0.080000000000000</double>
+            </property>
+            <property name="maximum">
+             <double>0.300000000000000</double>
+            </property>
+            <property name="singleStep">
+             <double>0.010000000000000</double>
+            </property>
+            <property name="value">
+             <double>0.150000000000000</double>
+            </property>
+           </widget>
+          </item>
+          <item row="1" column="0">
+           <widget class="QLabel" name="pwavelabel">
+            <property name="font">
+             <font>
+              <family>Sans Serif</family>
+              <pointsize>8</pointsize>
+             </font>
+            </property>
+            <property name="text">
+             <string comment="Do not translate P">P Wave</string>
+            </property>
+            <property name="alignment">
+             <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+            </property>
+            <property name="buddy">
+             <cstring>pwaveamplitude</cstring>
+            </property>
+           </widget>
+          </item>
+          <item row="1" column="1">
+           <widget class="QDoubleSpinBox" name="pwaveamplitude">
+            <property name="sizePolicy">
+             <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+              <horstretch>0</horstretch>
+              <verstretch>0</verstretch>
+             </sizepolicy>
+            </property>
+            <property name="minimumSize">
+             <size>
+              <width>83</width>
+              <height>23</height>
+             </size>
+            </property>
+            <property name="maximumSize">
+             <size>
+              <width>83</width>
+              <height>23</height>
+             </size>
+            </property>
+            <property name="font">
+             <font>
+              <family>Sans Serif</family>
+              <pointsize>8</pointsize>
+              <weight>50</weight>
+              <bold>false</bold>
+             </font>
+            </property>
+            <property name="toolTip">
+             <string>Defines the amplitude of the P wave. Ranges from 0.05 mV to 0.40 mV. Inactive when AF is checked.</string>
+            </property>
+            <property name="suffix">
+             <string comment="milivolts"> mV</string>
+            </property>
+            <property name="decimals">
+             <number>2</number>
+            </property>
+            <property name="minimum">
+             <double>0.050000000000000</double>
+            </property>
+            <property name="maximum">
+             <double>0.400000000000000</double>
+            </property>
+            <property name="singleStep">
+             <double>0.050000000000000</double>
+            </property>
+            <property name="value">
+             <double>0.200000000000000</double>
+            </property>
+           </widget>
+          </item>
+          <item row="1" column="2">
+           <widget class="QDoubleSpinBox" name="pwaveduration">
+            <property name="minimumSize">
+             <size>
+              <width>83</width>
+              <height>23</height>
+             </size>
+            </property>
+            <property name="maximumSize">
+             <size>
+              <width>83</width>
+              <height>23</height>
+             </size>
+            </property>
+            <property name="font">
+             <font>
+              <family>Sans Serif</family>
+              <pointsize>8</pointsize>
+              <weight>50</weight>
+              <bold>false</bold>
+             </font>
+            </property>
+            <property name="toolTip">
+             <string>Defines the duration of the P wave. Ranges from 0.04 s to 0.14 s. Inactive when AF is checked</string>
+            </property>
+            <property name="suffix">
+             <string comment="seconds"> s</string>
+            </property>
+            <property name="decimals">
+             <number>2</number>
+            </property>
+            <property name="minimum">
+             <double>0.040000000000000</double>
+            </property>
+            <property name="maximum">
+             <double>0.140000000000000</double>
+            </property>
+            <property name="singleStep">
+             <double>0.010000000000000</double>
+            </property>
+            <property name="value">
+             <double>0.090000000000000</double>
+            </property>
+           </widget>
+          </item>
+          <item row="1" column="3">
+           <widget class="QComboBox" name="pwavepositiveness">
+            <property name="sizePolicy">
+             <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+              <horstretch>0</horstretch>
+              <verstretch>0</verstretch>
+             </sizepolicy>
+            </property>
+            <property name="minimumSize">
+             <size>
+              <width>83</width>
+              <height>23</height>
+             </size>
+            </property>
+            <property name="maximumSize">
+             <size>
+              <width>83</width>
+              <height>23</height>
+             </size>
+            </property>
+            <property name="font">
+             <font>
+              <family>Sans Serif</family>
+              <pointsize>8</pointsize>
+              <weight>50</weight>
+              <bold>false</bold>
+             </font>
+            </property>
+            <property name="toolTip">
+             <string comment="Tooltip">Defines the orientation of the P wave. Can be set as positive or negative. Inactive when AF is checked.</string>
+            </property>
+            <item>
+             <property name="text">
+              <string>Positive</string>
+             </property>
+            </item>
+            <item>
+             <property name="text">
+              <string>Negative</string>
+             </property>
+            </item>
+           </widget>
+          </item>
+          <item row="2" column="0">
+           <widget class="QLabel" name="qrslabel">
+            <property name="font">
+             <font>
+              <family>Sans Serif</family>
+              <pointsize>8</pointsize>
+             </font>
+            </property>
+            <property name="text">
+             <string comment="Do not translate QRS">QRS </string>
+            </property>
+            <property name="alignment">
+             <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+            </property>
+            <property name="buddy">
+             <cstring>qrsamplitude</cstring>
+            </property>
+           </widget>
+          </item>
+          <item row="2" column="1">
+           <widget class="QDoubleSpinBox" name="qrsamplitude">
+            <property name="minimumSize">
+             <size>
+              <width>83</width>
+              <height>23</height>
+             </size>
+            </property>
+            <property name="maximumSize">
+             <size>
+              <width>83</width>
+              <height>23</height>
+             </size>
+            </property>
+            <property name="font">
+             <font>
+              <family>Sans Serif</family>
+              <pointsize>8</pointsize>
+              <weight>50</weight>
+              <bold>false</bold>
+             </font>
+            </property>
+            <property name="toolTip">
+             <string>Defines the amplitude of the QRS complex. Can range from 0.50 mV to 2.00 mV. </string>
+            </property>
+            <property name="suffix">
+             <string comment="milivolts"> mV</string>
+            </property>
+            <property name="decimals">
+             <number>2</number>
+            </property>
+            <property name="minimum">
+             <double>0.500000000000000</double>
+            </property>
+            <property name="maximum">
+             <double>2.000000000000000</double>
+            </property>
+            <property name="singleStep">
+             <double>0.500000000000000</double>
+            </property>
+            <property name="value">
+             <double>1.000000000000000</double>
+            </property>
+           </widget>
+          </item>
+          <item row="2" column="2">
+           <widget class="QDoubleSpinBox" name="qrsduration">
+            <property name="sizePolicy">
+             <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+              <horstretch>0</horstretch>
+              <verstretch>0</verstretch>
+             </sizepolicy>
+            </property>
+            <property name="minimumSize">
+             <size>
+              <width>83</width>
+              <height>23</height>
+             </size>
+            </property>
+            <property name="maximumSize">
+             <size>
+              <width>83</width>
+              <height>23</height>
+             </size>
+            </property>
+            <property name="font">
+             <font>
+              <family>Sans Serif</family>
+              <pointsize>8</pointsize>
+              <weight>50</weight>
+              <bold>false</bold>
+             </font>
+            </property>
+            <property name="toolTip">
+             <string>Defines the duration of the QRS complex. Can range from 0.08 s to 0.16 s. </string>
+            </property>
+            <property name="suffix">
+             <string comment="seconds"> s</string>
+            </property>
+            <property name="decimals">
+             <number>2</number>
+            </property>
+            <property name="minimum">
+             <double>0.080000000000000</double>
+            </property>
+            <property name="maximum">
+             <double>0.160000000000000</double>
+            </property>
+            <property name="singleStep">
+             <double>0.010000000000000</double>
+            </property>
+            <property name="value">
+             <double>0.100000000000000</double>
+            </property>
+           </widget>
+          </item>
+          <item row="2" column="3">
+           <widget class="QComboBox" name="qrspositiveness">
+            <property name="enabled">
+             <bool>false</bool>
+            </property>
+            <property name="sizePolicy">
+             <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+              <horstretch>0</horstretch>
+              <verstretch>0</verstretch>
+             </sizepolicy>
+            </property>
+            <property name="minimumSize">
+             <size>
+              <width>83</width>
+              <height>23</height>
+             </size>
+            </property>
+            <property name="maximumSize">
+             <size>
+              <width>83</width>
+              <height>23</height>
+             </size>
+            </property>
+            <property name="font">
+             <font>
+              <family>Sans Serif</family>
+              <pointsize>8</pointsize>
+              <weight>50</weight>
+              <bold>false</bold>
+             </font>
+            </property>
+            <property name="toolTip">
+             <string comment="Tooltip">Defines the morphology of the QRS complex. Can be set as normal intarventricular conduction, intraventricular conduction disturbance with RBBB or as intraventricular conduction disturbance with LBBB. </string>
+            </property>
+            <property name="currentIndex">
+             <number>1</number>
+            </property>
+            <item>
+             <property name="text">
+              <string>Normal</string>
+             </property>
+            </item>
+            <item>
+             <property name="text">
+              <string>RBBB</string>
+             </property>
+            </item>
+            <item>
+             <property name="text">
+              <string>LBBB</string>
+             </property>
+            </item>
+           </widget>
+          </item>
+          <item row="3" column="0">
+           <widget class="QLabel" name="twavelabel">
+            <property name="font">
+             <font>
+              <family>Sans Serif</family>
+              <pointsize>8</pointsize>
+             </font>
+            </property>
+            <property name="text">
+             <string comment="Do not translate T">T Wave</string>
+            </property>
+            <property name="alignment">
+             <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+            </property>
+            <property name="buddy">
+             <cstring>twaveamplitude</cstring>
+            </property>
+           </widget>
+          </item>
+          <item row="3" column="1">
+           <widget class="QDoubleSpinBox" name="twaveamplitude">
+            <property name="sizePolicy">
+             <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+              <horstretch>0</horstretch>
+              <verstretch>0</verstretch>
+             </sizepolicy>
+            </property>
+            <property name="minimumSize">
+             <size>
+              <width>83</width>
+              <height>23</height>
+             </size>
+            </property>
+            <property name="maximumSize">
+             <size>
+              <width>83</width>
+              <height>23</height>
+             </size>
+            </property>
+            <property name="font">
+             <font>
+              <family>Sans Serif</family>
+              <pointsize>8</pointsize>
+              <weight>50</weight>
+              <bold>false</bold>
+             </font>
+            </property>
+            <property name="toolTip">
+             <string>Defines the amplitude of the T wave. Ranges from 0.10 mV to 0.50 mV. </string>
+            </property>
+            <property name="suffix">
+             <string comment="milivolts"> mV</string>
+            </property>
+            <property name="decimals">
+             <number>2</number>
+            </property>
+            <property name="minimum">
+             <double>0.100000000000000</double>
+            </property>
+            <property name="maximum">
+             <double>0.500000000000000</double>
+            </property>
+            <property name="singleStep">
+             <double>0.050000000000000</double>
+            </property>
+            <property name="value">
+             <double>0.100000000000000</double>
+            </property>
+           </widget>
+          </item>
+          <item row="3" column="2">
+           <widget class="QDoubleSpinBox" name="twaveduration">
+            <property name="sizePolicy">
+             <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+              <horstretch>0</horstretch>
+              <verstretch>0</verstretch>
+             </sizepolicy>
+            </property>
+            <property name="minimumSize">
+             <size>
+              <width>83</width>
+              <height>23</height>
+             </size>
+            </property>
+            <property name="maximumSize">
+             <size>
+              <width>83</width>
+              <height>23</height>
+             </size>
+            </property>
+            <property name="font">
+             <font>
+              <family>Sans Serif</family>
+              <pointsize>8</pointsize>
+              <weight>50</weight>
+              <bold>false</bold>
+             </font>
+            </property>
+            <property name="toolTip">
+             <string>Defines the duration of the T wave. Ranges from 0.10 s to 0.40 s</string>
+            </property>
+            <property name="suffix">
+             <string comment="seconds"> s</string>
+            </property>
+            <property name="decimals">
+             <number>2</number>
+            </property>
+            <property name="minimum">
+             <double>0.100000000000000</double>
+            </property>
+            <property name="maximum">
+             <double>0.400000000000000</double>
+            </property>
+            <property name="singleStep">
+             <double>0.010000000000000</double>
+            </property>
+            <property name="value">
+             <double>0.160000000000000</double>
+            </property>
+           </widget>
+          </item>
+          <item row="3" column="3">
+           <widget class="QComboBox" name="twavepositiveness">
+            <property name="sizePolicy">
+             <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+              <horstretch>0</horstretch>
+              <verstretch>0</verstretch>
+             </sizepolicy>
+            </property>
+            <property name="minimumSize">
+             <size>
+              <width>83</width>
+              <height>23</height>
+             </size>
+            </property>
+            <property name="maximumSize">
+             <size>
+              <width>83</width>
+              <height>23</height>
+             </size>
+            </property>
+            <property name="font">
+             <font>
+              <family>Sans Serif</family>
+              <pointsize>8</pointsize>
+              <weight>50</weight>
+              <bold>false</bold>
+             </font>
+            </property>
+            <property name="toolTip">
+             <string comment="List box can be Positive or Negative T Wave value">Defines the orientation of the T wave. Can be set as positive or negative</string>
+            </property>
+            <item>
+             <property name="text">
+              <string>Positive</string>
+             </property>
+            </item>
+            <item>
+             <property name="text">
+              <string>Negative</string>
+             </property>
+            </item>
+           </widget>
+          </item>
+         </layout>
+        </widget>
+        <zorder>extrassistolegroupbox</zorder>
+        <zorder>specialconditionsbox</zorder>
+        <zorder>otherconditionsgroupbox</zorder>
+       </widget>
+       <widget class="QWidget" name="assessmentTab">
+        <attribute name="title">
+         <string>Assessment</string>
+        </attribute>
+       </widget>
+      </widget>
+     </item>
+    </layout>
+   </widget>
+  </widget>
+  <action name="action_Exit">
+   <property name="text">
+    <string>E&amp;xit</string>
+   </property>
+   <property name="toolTip">
+    <string>Exit simECG</string>
+   </property>
+   <property name="shortcut">
+    <string comment="menu"/>
+   </property>
+  </action>
+  <action name="action_About">
+   <property name="text">
+    <string>&amp;About ...</string>
+   </property>
+   <property name="toolTip">
+    <string>About simECG</string>
+   </property>
+  </action>
+  <action name="actionFilterOn">
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
+   <property name="checked">
+    <bool>true</bool>
+   </property>
+   <property name="enabled">
+    <bool>true</bool>
+   </property>
+   <property name="text">
+    <string>&amp;On</string>
+   </property>
+   <property name="toolTip">
+    <string>Turn noise filter ON</string>
+   </property>
+  </action>
+  <action name="actionFilterOff">
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
+   <property name="enabled">
+    <bool>true</bool>
+   </property>
+   <property name="text">
+    <string>O&amp;ff</string>
+   </property>
+   <property name="toolTip">
+    <string>Turn noise filter OFF</string>
+   </property>
+  </action>
+  <action name="actionBackStatic">
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
+   <property name="checked">
+    <bool>true</bool>
+   </property>
+   <property name="enabled">
+    <bool>false</bool>
+   </property>
+   <property name="text">
+    <string>&amp;Static</string>
+   </property>
+   <property name="toolTip">
+    <string>Static signal display</string>
+   </property>
+  </action>
+  <action name="actionBackRolling">
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
+   <property name="enabled">
+    <bool>false</bool>
+   </property>
+   <property name="text">
+    <string>&amp;Rolling</string>
+   </property>
+   <property name="toolTip">
+    <string>Rolling signal display</string>
+   </property>
+  </action>
+  <action name="actionBackgroundPaper">
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
+   <property name="checked">
+    <bool>true</bool>
+   </property>
+   <property name="enabled">
+    <bool>true</bool>
+   </property>
+   <property name="text">
+    <string>&amp;ECG paper</string>
+   </property>
+   <property name="toolTip">
+    <string>ECG paper background</string>
+   </property>
+  </action>
+  <action name="actionBackgroundMonitor">
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
+   <property name="enabled">
+    <bool>true</bool>
+   </property>
+   <property name="text">
+    <string>&amp;Monitor</string>
+   </property>
+   <property name="toolTip">
+    <string>Monitor display type</string>
+   </property>
+  </action>
+  <action name="actionSpeed25mm">
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
+   <property name="checked">
+    <bool>true</bool>
+   </property>
+   <property name="enabled">
+    <bool>false</bool>
+   </property>
+   <property name="text">
+    <string>&amp;25mm/s</string>
+   </property>
+   <property name="toolTip">
+    <string>Signal speed of 25mm/s</string>
+   </property>
+  </action>
+  <action name="actionSpeed50mm">
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
+   <property name="enabled">
+    <bool>false</bool>
+   </property>
+   <property name="text">
+    <string>&amp;50 mm/s</string>
+   </property>
+   <property name="toolTip">
+    <string>Signal speed of 50 mm/s</string>
+   </property>
+   <property name="autoRepeat">
+    <bool>false</bool>
+   </property>
+  </action>
+  <action name="actionAmplitude10mm">
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
+   <property name="checked">
+    <bool>true</bool>
+   </property>
+   <property name="enabled">
+    <bool>false</bool>
+   </property>
+   <property name="text">
+    <string>&amp;10 mm/mV</string>
+   </property>
+   <property name="toolTip">
+    <string>Signal amplitude of 10 mm/mV</string>
+   </property>
+  </action>
+  <action name="actionAmplitude5mm">
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
+   <property name="enabled">
+    <bool>false</bool>
+   </property>
+   <property name="text">
+    <string>&amp;5 mm/mV</string>
+   </property>
+   <property name="toolTip">
+    <string>Signal amplitude of 5 mm/mV</string>
+   </property>
+  </action>
+  <action name="actionSave_as_Preset">
+   <property name="enabled">
+    <bool>false</bool>
+   </property>
+   <property name="text">
+    <string>Save c&amp;ustom settings ...</string>
+   </property>
+  </action>
+  <action name="actionSave_Technical_Specifications_As">
+   <property name="enabled">
+    <bool>false</bool>
+   </property>
+   <property name="text">
+    <string>&amp;Save preferences ...</string>
+   </property>
+  </action>
+  <action name="actionLoad_Training_Settings_as_Preset">
+   <property name="enabled">
+    <bool>false</bool>
+   </property>
+   <property name="text">
+    <string>Load &amp;custom settings ...</string>
+   </property>
+  </action>
+  <action name="actionLoad_preferences">
+   <property name="enabled">
+    <bool>false</bool>
+   </property>
+   <property name="text">
+    <string>&amp;Load preferences ...</string>
+   </property>
+   <property name="shortcut">
+    <string comment="Menu name"/>
+   </property>
+  </action>
+ </widget>
+ <layoutdefault spacing="6" margin="11"/>
+ <customwidgets>
+  <customwidget>
+   <class>ECGplotter</class>
+   <extends>QWidget</extends>
+   <header>ecgplotter.h</header>
+   <container>1</container>
+  </customwidget>
+ </customwidgets>
+ <tabstops>
+  <tabstop>presetR0C0</tabstop>
+  <tabstop>presetR1C0</tabstop>
+  <tabstop>presetR2C0</tabstop>
+  <tabstop>presetR3C0</tabstop>
+  <tabstop>presetR4C0</tabstop>
+  <tabstop>presetR0C1</tabstop>
+  <tabstop>presetR1C1</tabstop>
+  <tabstop>presetR2C1</tabstop>
+  <tabstop>presetR3C1</tabstop>
+  <tabstop>presetR0C2</tabstop>
+  <tabstop>presetR1C2</tabstop>
+  <tabstop>presetR2C2</tabstop>
+  <tabstop>presetR3C2</tabstop>
+  <tabstop>presetR4C2</tabstop>
+  <tabstop>presetR0C3</tabstop>
+  <tabstop>presetR1C3</tabstop>
+  <tabstop>presetR2C3</tabstop>
+  <tabstop>presetR3C3</tabstop>
+  <tabstop>presetR4C3</tabstop>
+  <tabstop>presetR0C4</tabstop>
+  <tabstop>presetR1C4</tabstop>
+  <tabstop>presetR2C4</tabstop>
+  <tabstop>presetR3C4</tabstop>
+  <tabstop>presetR4C4</tabstop>
+  <tabstop>heartratespinBox</tabstop>
+  <tabstop>prduration</tabstop>
+  <tabstop>pwaveamplitude</tabstop>
+  <tabstop>pwaveduration</tabstop>
+  <tabstop>pwavepositiveness</tabstop>
+  <tabstop>qrsamplitude</tabstop>
+  <tabstop>qrsduration</tabstop>
+  <tabstop>qrspositiveness</tabstop>
+  <tabstop>twaveamplitude</tabstop>
+  <tabstop>twaveduration</tabstop>
+  <tabstop>twavepositiveness</tabstop>
+  <tabstop>svecheckbox</tabstop>
+  <tabstop>numberofsve</tabstop>
+  <tabstop>couplingofsve</tabstop>
+  <tabstop>vecheckbox</tabstop>
+  <tabstop>numberofve</tabstop>
+  <tabstop>couplingofve</tabstop>
+  <tabstop>morphologyofve</tabstop>
+  <tabstop>typesosblockinspecialconditions</tabstop>
+  <tabstop>atrialfibrillation</tabstop>
+ </tabstops>
+ <resources>
+  <include location="icons.qrc"/>
+ </resources>
+ <connections>
+  <connection>
+   <sender>actionBackgroundMonitor</sender>
+   <signal>activated()</signal>
+   <receiver>actionBackgroundPaper</receiver>
+   <slot>toggle()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>-1</x>
+     <y>-1</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>-1</x>
+     <y>-1</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>actionBackgroundPaper</sender>
+   <signal>activated()</signal>
+   <receiver>actionBackgroundMonitor</receiver>
+   <slot>toggle()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>-1</x>
+     <y>-1</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>-1</x>
+     <y>-1</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>actionBackRolling</sender>
+   <signal>activated()</signal>
+   <receiver>actionBackStatic</receiver>
+   <slot>toggle()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>-1</x>
+     <y>-1</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>-1</x>
+     <y>-1</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>actionBackStatic</sender>
+   <signal>activated()</signal>
+   <receiver>actionBackRolling</receiver>
+   <slot>toggle()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>-1</x>
+     <y>-1</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>-1</x>
+     <y>-1</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>actionFilterOff</sender>
+   <signal>activated()</signal>
+   <receiver>actionFilterOn</receiver>
+   <slot>toggle()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>-1</x>
+     <y>-1</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>-1</x>
+     <y>-1</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>actionFilterOn</sender>
+   <signal>activated()</signal>
+   <receiver>actionFilterOff</receiver>
+   <slot>toggle()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>-1</x>
+     <y>-1</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>-1</x>
+     <y>-1</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>actionAmplitude10mm</sender>
+   <signal>activated()</signal>
+   <receiver>actionAmplitude5mm</receiver>
+   <slot>toggle()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>-1</x>
+     <y>-1</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>-1</x>
+     <y>-1</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>actionAmplitude5mm</sender>
+   <signal>activated()</signal>
+   <receiver>actionAmplitude10mm</receiver>
+   <slot>toggle()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>-1</x>
+     <y>-1</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>-1</x>
+     <y>-1</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>actionSpeed25mm</sender>
+   <signal>activated()</signal>
+   <receiver>actionSpeed50mm</receiver>
+   <slot>toggle()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>-1</x>
+     <y>-1</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>-1</x>
+     <y>-1</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>actionSpeed50mm</sender>
+   <signal>activated()</signal>
+   <receiver>actionSpeed25mm</receiver>
+   <slot>toggle()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>-1</x>
+     <y>-1</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>-1</x>
+     <y>-1</y>
+    </hint>
+   </hints>
+  </connection>
+ </connections>
+ <buttongroups>
+  <buttongroup name="presetsButtonGroup"/>
+ </buttongroups>
+</ui>
